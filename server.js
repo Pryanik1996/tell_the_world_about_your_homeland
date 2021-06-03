@@ -5,6 +5,8 @@ const path = require('path');
 // const connect = require('./db/connect');
 const sessions = require('express-session') // Для чтения сессии 
 const MongoStore = require('connect-mongo'); // Пакет, необходимый для хранения сессий в базе данных mongoDB
+const registerRouter = require('./src/routes/register')
+
 const PORT = 3000;
 const server = express();
 
@@ -40,9 +42,8 @@ server.use(express.json());
 server.use(express.urlencoded({ extended: true }))
 
 
-
+server.use('/register', registerRouter)
 server.get('/', (req, res) => {
-  console.log('GET --->>>');
   res.render('index')
 })
 
