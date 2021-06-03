@@ -4,8 +4,10 @@ const hbs = require('hbs');
 const path = require('path');
 const connect = require('./src/db/connect');
 const sessions = require('express-session') // Для чтения сессии 
-const MongoStore = require('connect-mongo'); // Пакет, необходимый для хранения сессий в базе данных mongoDB
+const MongoStore = require('connect-mongo'); // Пакет, необходимый для хранения сессий в базе данных 
+
 const registerRouter = require('./src/routes/register')
+const loginRouter = require('./src/routes/loginRouter')
 
 const PORT = 3000;
 const server = express();
@@ -41,6 +43,10 @@ server.use(express.static(path.join(process.env.PWD, 'public')));
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }))
 
+server.use((req, res, next) => {
+  res.locals.name = req.session.name;
+  next();
+})
 
 server.use('/register', registerRouter)
 server.get('/', (req, res) => {
@@ -48,6 +54,7 @@ server.get('/', (req, res) => {
 })
 
 
+server.use('/login', loginRouter);
 
 
 
