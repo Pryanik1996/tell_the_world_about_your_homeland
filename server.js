@@ -8,6 +8,8 @@ const MongoStore = require('connect-mongo'); // Пакет, необходимы
 const PORT = 3000;
 const server = express();
 
+const loginRouter = require('./src/routes/loginRouter')
+
 // connect();
 
 const secretKey = require('crypto').randomBytes(64).toString('hex');
@@ -39,14 +41,19 @@ server.use(express.static(path.join(process.env.PWD, 'public')));
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }))
 
+server.use((req, res, next) => {
+  res.locals.name = req.session.name;
+  next();
+})
 
 
 server.get('/', (req, res) => {
-  console.log('GET --->>>');
+  console.log('GET --->>>')
   res.render('index')
 })
 
 
+server.use('/login', loginRouter);
 
 
 
