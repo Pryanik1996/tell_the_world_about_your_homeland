@@ -4,11 +4,11 @@ const userSchema = mongoose.Schema({
 
     name: {
         type: String,
-        require: true
+        require: true,
     },
     birthdate: {
         type: Date,
-        require: true
+        require: true,
     },
     email: {
         type: String,
@@ -21,7 +21,11 @@ const userSchema = mongoose.Schema({
     },
     city: {
         type: String,
-        require: true
+        require: true,
+    },
+    isAdmin: {
+      type: Boolean,
+      default: false,
     }
 })
 
