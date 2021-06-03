@@ -1,0 +1,29 @@
+{
+  "name": "tell_the_world_about_your_homeland",
+  "version": "1.0.0",
+  "description": "Children's creative projects about the homeland.",
+  "main": "app.js",
+  "dependencies": {
+    "connect-mongo": "^4.4.1",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "hbs": "^4.1.2",
+    "mongoose": "^5.12.12",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pryanik1996/tell_the_world_about_your_homeland.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pryanik1996/tell_the_world_about_your_homeland/issues"
+  },
+  "homepage": "https://github.com/Pryanik1996/tell_the_world_about_your_homeland#readme"
+}
