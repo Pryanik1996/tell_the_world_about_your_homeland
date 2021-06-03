@@ -48,6 +48,10 @@ const applicationSchema = mongoose.Schema({
     educationPlace: {
         type: String,
         require: true
+    },
+    userId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User"
     }
 })
 

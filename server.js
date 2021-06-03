@@ -2,7 +2,7 @@ const express = require('express');
 const morgan = require('morgan');
 const hbs = require('hbs');
 const path = require('path');
-// const connect = require('./db/connect');
+const connect = require('./src/db/connect');
 const sessions = require('express-session') // Для чтения сессии 
 const MongoStore = require('connect-mongo'); // Пакет, необходимый для хранения сессий в базе данных mongoDB
 const registerRouter = require('./src/routes/register')
@@ -10,7 +10,7 @@ const registerRouter = require('./src/routes/register')
 const PORT = 3000;
 const server = express();
 
-// connect();
+connect();
 
 const secretKey = require('crypto').randomBytes(64).toString('hex');
 const sessionParser = sessions({
