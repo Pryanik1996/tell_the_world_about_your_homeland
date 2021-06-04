@@ -15,7 +15,8 @@ const registerPost = async (req, res) => {
     }
       // req.sessions.userId = newUser._id
       // console.log(req.sessions.userId)
-      // const application = Application.find()
+      // const application = Application.
+      
       return res.redirect('/')
   }
   res.redirect('/register')

@@ -1,23 +1,6 @@
 const $conteiner = document.querySelector('.conteiner')
 const applicationForm = document.querySelector('.appl')
-const $search = document.querySelector('.search')
-console.log($search)
 
-
-$search.addEventListener('submit', async (event) => {
-  event.preventDefault()
-  const formData = Object.fromEntries(new FormData(event.target))
-  const response = await fetch('/search', { // отпр с фронта
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(formData)
-  })
-  if(response.redirected) {
-    window.location = response.url
-  }
-})
 
 $conteiner.addEventListener('submit', async (event) => {
   console.log(event.target)
