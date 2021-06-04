@@ -9,3 +9,6 @@ const competitionSchema = mongoose.Schema({
     type: String,
   }
 })
+
+
+module.exports = mongoose.model('Compettition', competitionSchema)

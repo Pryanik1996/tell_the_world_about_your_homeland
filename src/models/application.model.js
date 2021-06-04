@@ -25,7 +25,7 @@ const applicationSchema = mongoose.Schema({
         type: String,
         require: true
     },
-    teacherlink: {
+    userlink: {
         type: String,
         require: true
     },
@@ -49,9 +49,13 @@ const applicationSchema = mongoose.Schema({
         type: String,
         require: true
     },
-    userId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User"
+    workLink: {
+        type: String,
+        require: true
+    },
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
     }
 })
 

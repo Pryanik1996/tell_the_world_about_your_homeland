@@ -1,5 +1,5 @@
 const $conteiner = document.querySelector('.conteiner')
-// console.log($conteiner)
+const applicationForm = document.querySelector('.appl')
 
 $conteiner.addEventListener('submit', async (event) => {
   console.log(event.target)
@@ -27,6 +27,26 @@ if (loginForm) {
     e.preventDefault();
     const formData = Object.fromEntries(new FormData(e.target));
     const response = await fetch('/login', {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(formData)
+    });
+    console.log(response)
+    if (response.redirected) {
+      window.location = response.url
+    }
+  })
+}
+
+
+if (applicationForm) {
+  applicationForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    console.log(e.target)
+    const formData = Object.fromEntries(new FormData(e.target));
+    const response = await fetch('/application', {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

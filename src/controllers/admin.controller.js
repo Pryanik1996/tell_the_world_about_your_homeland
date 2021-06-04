@@ -1,5 +1,5 @@
 const User = require('../models/user.model')
-const Application = require('../models/application.model')
+// const Application = require('../models/application.model')
 const Competition = require('../models/comptetition.model')
 const adminUser = await User.find({ isAdmin: true })
 

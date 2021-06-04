@@ -8,7 +8,7 @@ const MongoStore = require('connect-mongo'); // Пакет, необходимы
 
 const registerRouter = require('./src/routes/registerRouter')
 const loginRouter = require('./src/routes/loginRouter')
-const adminRouter = require('./src/routes/adminRouter')
+const applicationRouter = require('./src/routes/applicationRouter')
 
 const PORT = 3000;
 const server = express();
@@ -45,11 +45,13 @@ server.use(express.json());
 server.use(express.urlencoded({ extended: true }))
 
 server.use((req, res, next) => {
+  res.locals.user = req.session.user;
   res.locals.name = req.session.name;
   next();
 })
 
 
+server.use('/application', applicationRouter)
 server.use('/register', registerRouter)
 server.use('/admin', adminRouter)
 server.use('/login', loginRouter);

@@ -10,13 +10,12 @@ const registerPost = async (req, res) => {
   if (name && birthdate && email && password && city) {
     const newUser = await User.create(req.body)
     if (newUser) {
-      req.session.user = { id: newUser._id, }
-      // console.log(req.sessions.user.id)
+      req.session.user = newUser._id;
       req.session.name = newUser.name;
     }
-      req.sessions.userId = newUser._id
+      // req.sessions.userId = newUser._id
       // console.log(req.sessions.userId)
-      const application = Application.find()
+      // const application = Application.find()
       return res.redirect('/')
   }
   res.redirect('/register')

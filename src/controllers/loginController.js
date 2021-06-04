@@ -9,7 +9,7 @@ const loginPost = async (req, res) => {
   if (email && password) {
     const currentUser = await User.findOne({ email, password })
     if (currentUser) {
-      req.session.user = { id: currentUser._id, }
+      req.session.user = currentUser._id
       req.session.name = currentUser.name;
       return res.redirect('/');
     }
