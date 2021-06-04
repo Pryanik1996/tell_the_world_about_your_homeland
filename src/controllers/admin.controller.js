@@ -1,7 +1,7 @@
-// const User = require('.')
+const User = require('../models/user.model')
 // const Application = require('../models/application.model')
-const Competition = require('../models/comptetition.model')
-
+const Competition = require('../models/competition.model')
+const adminUser =  User.find({ isAdmin: true })
 
 const createCompetition = async (req, res) => {
   const adminUser = await User.find({ isAdmin: true })
@@ -38,4 +38,9 @@ const patchCompetition = async (req, res) => {
   res.redirect('/admin')
 }
 
-module.exports = {createCompetition, deleteCompetition, patchCompetition}
+
+module.exports = {
+  createCompetition,
+  deleteCompetition,
+  patchCompetition,
+}
