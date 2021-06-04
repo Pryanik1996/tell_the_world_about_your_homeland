@@ -11,4 +11,4 @@ const competitionSchema = mongoose.Schema({
 })
 
 
-module.exports = mongoose.model('Compettition', competitionSchema)
+module.exports = mongoose.model('Competition', competitionSchema)
