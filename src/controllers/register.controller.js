@@ -11,10 +11,11 @@ const registerPost = async (req, res) => {
     const newUser = await User.create(req.body)
     if (newUser) {
       req.session.user = { id: newUser._id, }
+      // console.log(req.sessions.user.id)
       req.session.name = newUser.name;
     }
       req.sessions.userId = newUser._id
-      console.log(req.sessions.userId)
+      // console.log(req.sessions.userId)
       const application = Application.find()
       return res.redirect('/')
   }
