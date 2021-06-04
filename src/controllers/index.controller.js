@@ -15,14 +15,15 @@ const indexSearch = async (req, res) => {
   const cityLowerCase = city.toLowerCase().trim()
   // console.log(cityLowerCase)
   const UserCity = await User.find({city : cityLowerCase})
+  console.log(UserCity)
   const applicationCity = []
   UserCity.forEach((el) => applicationCity.push(el._id))
   console.log(applicationCity)
-  for(let i = 0; i < applicationCity.length; i++) {
-    const arr = []
-    arr.push(await Application.find({user : applicationCity[i]}))
-    console.log(arr)
-  }
+  // for(let i = 0; i < applicationCity.length; i++) {
+  //   const arr = []
+    const arr1 = await Application.find({user : applicationCity[0]})
+    console.log(arr1)
+  // }
   
 
   res.redirect('/')
