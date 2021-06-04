@@ -7,7 +7,7 @@ const createApplication = async (req, res) => {
         await newApplication.save();
     } catch (error) {
         console.log('catch ------------------')
-        return res.redirect('/application')
+       return res.redirect('/application')
     }
 
     return res.redirect(`/`);
