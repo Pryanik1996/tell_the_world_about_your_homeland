@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 
 const applicationSchema = mongoose.Schema({
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
-    },
     nomination: {
         type: String,
         require: true
@@ -29,7 +25,7 @@ const applicationSchema = mongoose.Schema({
         type: String,
         require: true
     },
-    teacherlink: {
+    userlink: {
         type: String,
         require: true
     },
@@ -52,6 +48,14 @@ const applicationSchema = mongoose.Schema({
     educationPlace: {
         type: String,
         require: true
+    },
+    workLink: {
+        type: String,
+        require: true
+    },
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
     }
 })
 
