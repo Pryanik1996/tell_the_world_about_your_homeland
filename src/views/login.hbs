@@ -1,14 +1,20 @@
-<h1>Login plz</h1>
+<div class="bg-12">
+  <div class="wrap">
+  <hr class="hr hr-header">
 
-<form id="loginForm">
-  <label class="block mar-b-1">Email</label>
-  <input name="email" type="text" tabindex="1"
-    class="block w-100 no-outline no-border pad-1 mar-b-2">
-  <br> <br>
-  <label class="block mar-b-1">Password</label>
-  <input name="password" type="password" tabindex="2"
-    class="block w-100 no-outline no-border pad-1 mar-b-2">
-  <br> <br>
-  <input type="submit" value="Login" tabindex="3"
-    class="block button w-100 mar-t-4 mar-b-3 pad-2 round-1 text-c center no-border no-outline">
-</form>
+  <main class="main-reg">
+    <form class="registration-form" action="" method="POST">
+      <div class="reg-header">Вход</div>
+      <div class="reg-body">
+        <div class="reg-list">
+          <input class="reg-field" name="email" type="email" placeholder="Email" required>
+          <input class="reg-field" name="password" type="password" placeholder="Пароль" required>  
+        </div>
+        <div class="reg__div-btn">
+          <button class="btn-reg" type="submit" name="reg-btn">Войти</button>
+        </div>
+      </div>
+    </form>
+  </main>
+</div>
+</div>

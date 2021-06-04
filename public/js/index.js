@@ -1,7 +1,7 @@
 const $conteiner = document.querySelector('.conteiner')
 const applicationForm = document.querySelector('.appl')
 
-
+if($conteiner) {
 $conteiner.addEventListener('submit', async (event) => {
   console.log(event.target)
 
@@ -18,6 +18,7 @@ $conteiner.addEventListener('submit', async (event) => {
     window.location = response.url
   }
 })
+}
 console.log('Public index v dele')
 
 const loginForm = document.querySelector('#loginForm')

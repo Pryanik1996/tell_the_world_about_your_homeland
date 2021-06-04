@@ -4,6 +4,7 @@ const Competition = require('../models/competition.model')
 const adminUser =  User.find({ isAdmin: true })
 
 const createCompetition = async (req, res) => {
+  const adminUser = await User.find({ isAdmin: true })
   if (adminUser) {
     const { title, description } = req.body
     if (title && description) {

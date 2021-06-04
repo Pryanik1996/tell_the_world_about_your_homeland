@@ -9,8 +9,10 @@ const MongoStore = require('connect-mongo'); // Пакет, необходимы
 const registerRouter = require('./src/routes/register.router')
 const loginRouter = require('./src/routes/login.router')
 const applicationRouter = require('./src/routes/application.routet')
+const lkRouter = require('./src/routes/lkRouter')
 const adminRouter = require('./src/routes/admin.router')
-const indexRouter = require('./src/routes/index.router')
+const indexRouter = require('./src/routes/index.router');
+// const { get } = require('./src/routes/register.router');
 const PORT = 3000;
 const server = express();
 
@@ -52,14 +54,12 @@ server.use((req, res, next) => {
 })
 
 
+server.use('/', indexRouter)
 server.use('/register', registerRouter)
 server.use('/admin', adminRouter)
-server.use('/', indexRouter)
 server.use('/application', applicationRouter)
 server.use('/login', loginRouter);
-
-
-
+server.use('/lk', lkRouter);
 
 
 

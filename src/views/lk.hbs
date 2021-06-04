@@ -1,0 +1,52 @@
+  <div class="bg-6" >
+    <div class="wrap">
+    <hr class="hr hr-header">
+
+    <main>
+      <div class="profile__wrap">
+        <ul class="profile__ul"><h2 class="appl-title">Личный кабинет</h2>
+{{#if user}}
+          <li class="profile__li">Меня зовут: {{user.name}}</li>
+          <li class="profile__li">Мой город: {{user.city}}</li>
+        </ul>
+        <ul>
+          {{#each application}}
+            <hr>
+            <li class="profile__li">Номинация: {{this.nomination}}</li>
+            <li class="profile__li">Возрастная категория: {{this.agecategory}}</li>
+            <li class="profile__li"><a href="{{this.workLink}}" target="_blank">Ссылка на работу:  {{this.workLink}}</a></li>
+            <a href="#">Посмотреть всю заявку</a>
+            <hr>
+          {{/each}}
+        </ul>
+      </div>
+      {{!-- <hr class="hr"> --}}
+    </main>
+
+    {{!-- <div class="works__request works__requesr-reg">
+      В этом месте отображаются работы участников<br>
+    </div> --}}
+  </div>
+{{/if}}
+  </div>  
+  
+
+
+
+{{!-- //
+{{#if user}}
+<ul>
+  <li>Меня зовут: {{user.name}}</li>
+  <li>Мой город: {{user.city}}</li>
+</ul>
+<ul>
+  {{#each application}}
+  <hr>
+  <li>Номинация: {{this.nomination}}</li>
+  <li>Возрастная категория: {{this.agecategory}}</li>
+  <li><a href="{{this.workLink}}" target="_blank">Ссылка на работу:  {{this.workLink}}</a></li>
+  <a href="#">Посмотреть всю заявку</a>
+  <hr>
+  {{/each}}
+</ul>
+{{/if}} --}}
