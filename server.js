@@ -2,13 +2,21 @@ const express = require('express');
 const morgan = require('morgan');
 const hbs = require('hbs');
 const path = require('path');
-// const connect = require('./db/connect');
+const connect = require('./src/db/connect');
 const sessions = require('express-session') // Для чтения сессии 
-const MongoStore = require('connect-mongo'); // Пакет, необходимый для хранения сессий в базе данных mongoDB
+const MongoStore = require('connect-mongo'); // Пакет, необходимый для хранения сессий в базе данных 
+
+const registerRouter = require('./src/routes/register.router')
+const loginRouter = require('./src/routes/login.router')
+const applicationRouter = require('./src/routes/application.routet')
+const lkRouter = require('./src/routes/lkRouter')
+const adminRouter = require('./src/routes/admin.router')
+const indexRouter = require('./src/routes/index.router');
+// const { get } = require('./src/routes/register.router');
 const PORT = 3000;
 const server = express();
 
-// connect();
+connect();
 
 const secretKey = require('crypto').randomBytes(64).toString('hex');
 const sessionParser = sessions({
@@ -39,15 +47,19 @@ server.use(express.static(path.join(process.env.PWD, 'public')));
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }))
 
-
-
-server.get('/', (req, res) => {
-  console.log('GET --->>>');
-  res.render('index')
+server.use((req, res, next) => {
+  res.locals.user = req.session.user;
+  res.locals.name = req.session.name;
+  next();
 })
 
 
-
+server.use('/', indexRouter)
+server.use('/register', registerRouter)
+server.use('/admin', adminRouter)
+server.use('/application', applicationRouter)
+server.use('/login', loginRouter);
+server.use('/lk', lkRouter);
 
 
 

@@ -1,0 +1,62 @@
+{{!-- <header role="banner" class="mar-t-5 pad-t-2 pad-b-4 pad-s-1 wrap-float bg-white">
+  <div class="max-w-700 center wrap-float">
+    <nav class="clearfix mar-b-1">
+      <ul class="no-bullets no-margin no-padding right">
+        <form class="search" action="/search" method="POST">
+          <div class="mb-3">
+            <label for="text" class="form-label">Город</label>
+            <input name="city" type="text" class="form-control" aria-describedby="emailHelp">
+            <button type="submit" class="btn btn-primary">Отправить</button>
+          </div>
+        </form>
+        {{#if name}}
+        <li class="pipe-separate t-light-green left">{{name}}</li>
+        <li class="pipe-separate t-light-green left"><a href="/login/logout">logout</a></li>
+        <li class="pipe-separate t-light-green left"><a href="/application">Заявка</a></li>
+        <li class="pipe-separate t-light-green left"><a href="/">home</a></li>
+        {{else}}
+        <li class="pipe-separate t-light-green left"><a href="/register">register</a></li>
+        <li class="pipe-separate t-light-green left"><a href="/login">login</a></li>
+        <li class="pipe-separate t-light-green left"><a href="/">home</a></li>
+        {{/if}}
+      </ul>
+      <ul>
+      
+    
+
+    </nav>
+  </div>
+</header> --}}
+
+{{!-- <div class="bg-forest"> --}}
+  <div class="wrap">
+    {{#if name}}
+    <header class="header">
+      <div class="heaver__nav-ul">
+        <a class="heaver__nav-li"href="">О нас</a>
+        <a class="heaver__nav-li"href="">Конкурсы</a>
+        <a class="heaver__nav-li"href="#works__request">Работы участников</a>
+      </div>
+      <div class="header__log">
+        <a  class="header__log-li"href="/login/logout">Выйти</a>
+        <a  class="header__log-li"href="/lk">{{name}}</a>
+        <a  class="header__log-li"href="/">Главная страница</a>
+      </div>
+    </header>
+  </div>
+      {{else}}
+      <header class="header">
+      <div class="heaver__nav-ul">
+        <a class="heaver__nav-li"href="">О нас</a>
+        <a class="heaver__nav-li"href="">Конкурсы</a>
+        <a class="heaver__nav-li"href="#works__request">Работы участников</a>
+      </div>
+      <div class="header__log">
+        <a  class="header__log-li"href="/login">Войти</a>
+        <a  class="header__log-li"href="/register">Регистрация</a>
+        <a  class="header__log-li"href="/">Главная страница</a>
+      </div>
+    </header>
+  </div>
+    {{/if}}
+{{!-- </div> --}}
